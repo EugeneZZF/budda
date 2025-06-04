@@ -1,0 +1,104 @@
+@use "../../styles/variables" as vars;
+
+.principlesSection {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(80px);
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+    &.fadeIn {
+        opacity: 1;
+    }
+    &.fadeOut {
+        opacity: 0;
+    }
+    .principlesShow {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        .marquee {
+            width: 100vw;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            gap: 56px;
+            display: flex;
+            flex-direction: column;
+            .principlesLine {
+                border: 1px solid #FFFFFF;
+                display: flex;
+            }
+            .parallax {
+                word-spacing: 64px;
+                .scroller{
+                    gap: 64px;
+                }
+            }
+        }
+    }
+}
+
+.parallax {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.parallax .scroller {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 350;
+    letter-spacing: -4px;
+    font-style: italic;
+    font-size: 80px;
+    color: vars.$main-color-text;
+    display: flex;
+    white-space: nowrap;
+    opacity: 0;
+    animation: textFadeIn 0.5s ease-in-out forwards;
+    will-change: transform;
+}
+@keyframes textFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .parallax .scroller {
+        font-size: 64px;
+    }
+    .principlesSection .principlesShow .marquee {
+        gap: 64px;
+    }
+    .principlesShow .marquee .parallax , .principlesShow .marquee .parallax .scroller {
+        word-spacing: 40px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .parallax .scroller {
+        font-size: 56px;
+    }
+    .principlesSection .principlesShow .marquee {
+        gap: 56px;
+    }
+}
+
+@media screen and (max-width: 390px), (max-width: 375px), (max-width: 428px) {
+    .principlesShow .parallax .scroller {
+        font-size: 40px;
+    }
+    .principlesSection .principlesShow .marquee {
+        gap: 40px;
+    }
+    .principlesShow .marquee .parallax , .principlesShow .marquee .parallax .scroller{
+        word-spacing: 24px;
+    }
+}

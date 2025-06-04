@@ -1,0 +1,283 @@
+@use "../../../styles/variables.scss" as vars;
+
+// footer /contacts
+  .underFooterContacts{
+	display: flex;
+	color: vars.$main-color-text;
+	flex-direction: column;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 0 24px;
+	line-height: 1;
+	.mainFooterP{
+		line-height: 16px;
+	  	color: vars.$main-color-text;
+	  	text-transform: uppercase;
+	  	text-decoration: none;
+	  	display: flex;
+	  	align-items: baseline;
+	  	justify-content: center;
+  }
+	.underFooterBottomContacts{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: end;
+		padding: 0 0 24px 0;
+		p{
+			text-align: start;
+		}
+		a{
+			color: vars.$main-color-text;
+			text-decoration: none;
+			text-align: end;
+		}
+		.underLinkFirst{
+            text-align: start;
+			line-height: 10px;
+            .word{
+                line-height: 12px;
+            }
+            .char {
+                overflow: hidden;
+                color: transparent;
+                height: 16.5px;
+                &:before,
+                &:after {
+                    visibility: visible;
+                    height: 22px;
+                    color: vars.$main-color-text;
+                    transition: transform 0.5s cubic-bezier(0.9,0,.2,1);
+                    transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+                }
+                &:before {
+                    transition-delay: calc( 0.02s * ( var(--char-index)) );
+                }
+            }
+            &:hover .char:before { 
+                transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+            }
+            &:hover .char:after {
+                transition-delay: calc( 0.02s * ( var(--char-index)) );
+            }
+        }
+		.underLinkSecond{
+            text-align: end;
+            // width: 177px;
+            line-height: 10px;
+            .word{
+                line-height: 12px;
+            }
+            .char {
+                overflow: hidden;
+                color: transparent;
+                height: 16.5px;
+                &:before,
+                &:after {
+                    visibility: visible;
+                    height: 22px;
+                    color: vars.$main-color-text;
+                    transition: transform 0.5s cubic-bezier(0.9,0,.2,1);
+                    transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+                }
+                &:before {
+                    transition-delay: calc( 0.02s * ( var(--char-index)) );
+                }
+            }
+            &:hover .char:before { 
+                transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+            }
+            &:hover .char:after {
+                transition-delay: calc( 0.02s * ( var(--char-index)) );
+            }
+        }  
+        .underLinkSecond , .underLinkFirst {
+            .char:before { transform: translateY(100%); }
+            &:hover .char:before { transform: translateY(0%); }
+            &:hover .char:after { transform: translateY(-100%); }
+        }
+	}
+	.showLink{
+		display: flex;
+		gap: 24px;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: inline-flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+		.ul_link {
+			position: relative;
+			line-height: 16px;
+			.char {
+                overflow: hidden;
+                color: transparent;
+                &:before,
+                &:after {
+                    visibility: visible;
+                    color: vars.$main-color-text;
+                    transition: transform 0.5s cubic-bezier(0.9,0,.2,1);
+                    transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+                }
+                &:before {
+                    transition-delay: calc( 0.02s * ( var(--char-index)) );
+                }
+            }
+            &:hover .char:before { 
+                transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+            }
+            &:hover .char:after {
+                transition-delay: calc( 0.02s * ( var(--char-index)) );
+            }
+		}
+		.ul_link {
+            .char:before { transform: translateY(100%); }
+            &:hover .char:before { transform: translateY(0%); }
+            &:hover .char:after { transform: translateY(-100%); }
+        }
+	}
+	.lowerSection , article{
+		display: none;
+	}
+	@media screen and (max-width: 1366px) {
+	    .underFooterBottom , .ul_link {
+		    font-size: 14px !important;
+	    }
+        .underLinkSecond .word .char , .underLinkSecond .word , .underLinkFirst .word .char , .underLinkFirst .word {
+            height: 14px;
+        }
+	}
+	@media screen and (max-width: 768px) {
+		.underFooterBottomContacts{
+			display: none;
+		}
+		.lowerSection{
+      		display: flex;
+     		flex-direction: column;
+      		gap: 48px;
+			padding: 0 0 24px 0;
+			height: 100%;
+			article{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.contactButtons{
+					display: flex;
+					gap: 4px;
+					flex-direction: column;
+					text-decoration: none;
+					height: 86px;
+					text-align: center;
+					.contactLight{
+						z-index: 0;
+						position: relative;
+						top: -200%;
+						filter: blur(40px);
+					}
+					p{
+						font-size: 32px;
+						letter-spacing: -1px;
+						font-weight: 350;
+						z-index: 1000;
+						cursor: pointer;
+						color: vars.$main-color-text;
+					}
+					.discription{
+						font-family: 'Playfair Display', sans-serif;
+						font-weight: 200;
+						font-style: italic;
+						z-index: 1000;
+						cursor: pointer;
+						color: vars.$main-color-text;
+					}
+				}
+			}
+			a{
+				color: vars.$main-color-text;
+				text-decoration: none;
+				text-align: end;
+			}
+			.ulPortfolio{
+				display: flex ;
+				flex-direction: row;
+				justify-content: space-between;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: inline-flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				.portfolioLink{
+					position: relative;
+					font-weight: 350;
+					line-height: 16px;
+				}
+				.portfolioLink:hover:before {
+					-webkit-transform: scaleX(1);
+					-ms-transform: scaleX(1);
+					transform: scaleX(1);
+					-webkit-transform-origin: left;
+					-ms-transform-origin: left;
+					transform-origin: left;
+					-webkit-transition: -webkit-transform 0.55s;
+					transition: -webkit-transform 0.55s;
+					-o-transition: transform 0.55s;
+					transition: transform 0.55s;
+					transition: transform 0.55s, -webkit-transform 0.55s;
+				}
+				.portfolioLink:before {
+					content: '';
+					width: 100%;
+					height: 1px;
+					background-color: vars.$main-color-text;
+					position: absolute;
+					left: 0; bottom: -2px;
+					-webkit-transform: scaleX(0);
+					-ms-transform: scaleX(0);
+					transform: scaleX(0);
+					-webkit-transform-origin: right;
+					-ms-transform-origin: right;
+					transform-origin: right;
+					-webkit-transition: -webkit-transform 0.55s;
+					transition: -webkit-transform 0.55s;
+					-o-transition: transform 0.55s;
+					transition: transform 0.55s;
+					transition: transform 0.55s, -webkit-transform 0.55s;
+				}
+			}
+            footer{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                align-items: end;
+                .footerLinkFirst{
+                    text-align: start;
+                }
+                .footerLinkSecond{
+                    text-align: end;
+                    width: 177px;
+                }
+            }
+        }
+	}
+	@media screen and (max-width: 390px), (max-width: 375px), (max-width: 428px) {
+		article .contactButtons{
+			height: 73px;
+			width: auto;
+		}
+		.lowerSection article .contactButtons p{
+			font-size: 24px;
+		}
+		.lowerSection article .contactLight {
+			top: -160%;
+		}
+		.lowerSection article .contactButtons {
+			height: 67px;
+		}
+	}
+}

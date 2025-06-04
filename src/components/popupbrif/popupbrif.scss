@@ -1,0 +1,318 @@
+@use "../../styles/variables" as vars;
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 200%;
+    background: rgba(15, 15, 15, 0.75);
+    z-index: 9999;
+}
+	fieldset{
+		border: none;
+	}
+	input::placeholder {
+		color: #07070766 !important;
+	}
+	textarea::placeholder {
+		color: #07070766;
+	}
+			// form
+			.drawer {
+				right: 0;
+				display: flex;
+				flex-direction: column;
+				position: fixed;
+				width: 780px;
+				height: 100vh;
+				background: vars.$main-color-text !important;
+				z-index: 1000;
+				padding: 48px 24px 24px 24px;
+				gap: 40px;
+				.popupText{
+					color: vars.$black-text;
+					line-height: 100%;
+					font-weight: 400;
+				}
+				.ownInput, .ownInputSpecial, .ownTextarea {
+					border: rgba(7, 7, 7, 0.2) 1px solid !important;
+				}
+				.ownInput, .ownInputSpecial, .ownTextarea {
+					&:hover, &:focus, &:active, &:not(:placeholder-shown) {
+						border: vars.$black-text 1px solid !important;
+						transition: ease-in-out 0.5s !important;
+					}
+				}
+				.ownInput{
+					font-family: 'Inter', sans-serif;
+					background: transparent;
+					outline: none;
+					padding: 16px;
+					border-radius: 8px;
+					line-height: 100%;
+					width: 100%;
+					transition: 0.5s;
+				}
+				.ownInputSpecial{
+					font-family: 'Inter', sans-serif;
+					background: transparent;
+					outline: none;
+					padding: 16px;
+					border-radius: 8px;
+					line-height: 100%;
+					width: 100%;
+					margin: 8px 0 0 0;
+					transition: 0.5s;
+					.ownInputSpecial::placeholder {
+						color: vars.$pop-text;
+					}
+				}
+				.mainButtonB, .mainButtonT{
+					font-family: 'Inter', sans-serif;
+					background: transparent;
+					padding: 16px;
+					border-radius: 8px;
+					line-height: 100%;
+					border: rgba(7, 7, 7, 0.2) 1px solid;
+					cursor: pointer;
+					transition: 0.5s;
+					align-items: center;
+  					display: flex;
+					&:hover, &:focus, &:active {
+						border: vars.$black-text 1px solid;
+						transition: ease-in-out 0.5s;
+					}
+				}
+				.mainButtonB.selected, .mainButtonT.selected {
+					border: 1px solid vars.$black-text;
+				}
+				header {
+					display: flex;
+					position: relative;
+					flex-direction: column;
+					.startText , .startTextSecond {
+						font-family: 'Playfair Display', sans-serif;
+						font-weight: 350;
+						font-style: italic;
+						letter-spacing: -4px;
+						line-height: 52px;
+						font-size: 64px;
+						text-align: start;
+						color: vars.$black-text;
+					}
+					.startTextSecond{
+						display: none;
+					}
+					.closeButton {
+						background: transparent;
+						border: none;
+						position: absolute;
+						right: 0;
+						top: 0;
+						cursor: pointer;
+						margin-top: 8px;
+                        img{
+                            transition: transform 0.5s;
+                        }
+                        &:hover{
+                            img{
+                                transform: rotate(185deg);
+                            }
+                        }
+					}
+					.horizontalText{
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+						text-align: start;
+						padding: 48px 0 0 0;
+					}
+				}
+				form{
+					display: flex;
+					flex-direction: column;
+					gap: 24px;
+					overflow-y: auto;
+					height: 100%;
+					input, button{
+						height: 48px;
+					}
+					div{
+						width: 100%;
+					}
+					.error {
+						border: 1px solid #C94747 !important;;
+					}
+					.errorText, .errorText2{
+						color: #C94747;
+						font-size: 14px;
+						height: 0px;
+						// font-weight: 400;
+					}
+					.errorText2{
+						margin: -16px 0 0 0;
+					}
+					.horizontalGround{
+						display: flex;
+						flex-direction: column;
+						gap: 16px;
+						text-align: start;
+						.inputContact{
+							display: flex;
+							flex-direction: row;
+							gap: 8px;
+						}
+						.buttonsMainT , .buttonsMainB{
+							display: flex;
+							flex-direction: row;
+							gap: 8px;
+							align-items: flex-start;
+						}
+						.buttonsMainT{
+							justify-content: space-between;
+						}
+					}
+					.verticalGroundLast{
+						display: flex;
+						flex-direction: column;
+						text-align: start;
+						height: 100%;
+						.ownTextarea{
+							font-family: 'Inter', sans-serif;
+							background: transparent;
+							outline: none;
+							padding: 16px;
+							color: vars.$black-text;
+							border: vars.$pop-text 1px solid;
+							border-radius: 8px;
+							line-height: 100%;
+							width: 100%;
+							resize: vertical;
+							height: 100%;
+							min-height: 120px;
+							transition: 0.5s;
+						}
+					}
+					.submitButton{
+						font-family: 'Inter', sans-serif;
+						background: transparent;
+						padding: 16px;
+						color: transparent;
+						border: vars.$black-text 1px solid;
+						border-radius: 8px;
+						line-height: 100%;
+						cursor: pointer;
+						transition: 0.5s;
+						margin: auto 0 0 0;
+						.char {
+							overflow: hidden;
+							height: 16.5px;
+							&:before,
+							&:after {
+								visibility: visible;
+								height: 22px;
+								color: vars.$black-text;
+								transition: transform 0.5s cubic-bezier(0.9,0,.2,1);
+								transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+							}
+							&:before {
+								transition-delay: calc( 0.02s * ( var(--char-index)) );
+								color: vars.$main-color-text;
+							}
+						}
+						&:hover .char:before { 
+							transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) );
+							color: vars.$main-color-text;
+						}
+						&:hover .char:after {
+							transition-delay: calc( 0.02s * ( var(--char-index)) );
+							color: vars.$main-color-text;
+						}
+					}
+					.submitButton:hover{
+						border: vars.$black-text 1px solid;
+						background: vars.$black-text;
+						transition: ease-in-out 0.5s;
+					}
+					.submitButton {
+						.char:before { transform: translateY(100%); }
+						&:hover .char:before { transform: translateY(0%); }
+						&:hover .char:after { transform: translateY(-100%); }
+					}
+				}
+			}
+			@media screen and (max-width: 1366px) {
+				.drawer{
+					width: 708px;
+				}
+				.drawer header .startText{
+					display: none;
+				}
+				.drawer header .startTextSecond{
+					display: block;
+					font-size: 56px;
+				}
+				.drawer .mainButtonT, .drawer .mainButtonB, .drawer form .submitButton{
+					font-size: 14px;
+				}
+			}
+			@media screen and (max-width: 1024px) {
+				.drawer{
+					width: 100%;
+					top: 0;
+					overflow-y: auto;
+				}
+				.drawer form {
+					overflow-y: initial;
+				}
+				.drawer form .horizontalGround .buttonsMainT {
+					justify-content: start;
+				}
+			}
+			@media screen and (max-width: 768px) {
+				.drawer header .startText{
+					display: none;
+				}
+				.drawer header .startTextSecond{
+					display: block;
+					font-size: 56px;
+				}
+			}
+			@media screen and (max-width: 390px), (max-width: 375px), (max-width: 428px) {
+				.drawer {
+					padding: 48px 24px 32px 24px;
+				}
+				.drawer header .startText{
+					display: block;
+					font-size: 48px;
+					letter-spacing: -3px;
+					line-height: 42px;
+				}
+				.drawer form .errorText, .overlay .drawer form .errorText2 {
+					padding: 4px 0 12px 0;
+				}
+				.drawer header .startTextSecond{
+					display: none;
+				}
+				.drawer header .horizontalText{
+					padding: 48px 0 0 0;
+					flex-direction: column;
+					gap: 16px;
+				}
+				.drawer form .horizontalGround .inputContact{
+					flex-direction: column;
+				}
+				.drawer form .horizontalGround .buttonsMainT{
+					flex-wrap: wrap;
+					justify-content: flex-start;
+				}
+				.drawer form .horizontalGround .buttonsMainB{
+					flex-direction: revert;
+    			flex-wrap: wrap;
+	
+				}
+				.drawer .submitButton{
+					font-weight: 500;
+				}
+			}

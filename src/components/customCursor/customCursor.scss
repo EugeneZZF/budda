@@ -1,0 +1,87 @@
+// .custom-cursor {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     pointer-events: none;
+//     font-size: 16px;
+//     line-height: 100%;
+//     letter-spacing: -0.64px;
+//     color: #fff;
+//     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+//     z-index: 11;
+//     mix-blend-mode: difference;
+//     text-transform: uppercase;
+//     text-align: center;
+//   }
+//   .custom-cursor.interactive {
+//     opacity: 0;
+//   }
+//   /* Переопределение курсора для интерактивных элементов, чтобы показывался нативный pointer */
+//   link,
+//   button,
+//   input,
+//   textarea,
+//   select,
+//   [role="button"] {
+//     cursor: pointer;
+//   }
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+  color: #fff;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 11;
+  mix-blend-mode: difference;
+  text-transform: uppercase;
+  text-align: center;
+
+  &.interactive {
+    opacity: 0;
+  }
+
+  &.hidden {
+    color: transparent;
+  }
+
+  &.hidden-in-footer {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+}
+
+.navbarSection {
+  cursor: none;
+}
+
+/* Переопределение курсора для интерактивных элементов, чтобы показывался нативный pointer */
+a:not(.image-link):not(.navbarBtn):not(.navbarTelegram):not(.navbarText),
+button,
+input,
+textarea,
+select,
+[role="button"]:not(.image-link) {
+  cursor: pointer;
+}
+
+/* Специальное правило для элементов image-link */
+.image-link {
+  cursor: none;
+}
+
+/* Add specific rule for footer interactive elements */
+footer a, 
+footer button, 
+footer [role="button"] {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .custom-cursor{
+    display: none;
+  }
+}
