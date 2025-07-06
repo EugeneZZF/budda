@@ -66,7 +66,7 @@ function FooterContacts() {
           <Link
             data-splitting
             className="underLinkSecond"
-            to="https://github.com/pavelO11"
+            to="https://github.com/eugenezzf"
             target="_blank"
             rel="noopener noreferrer"
           >
